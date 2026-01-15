@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BooBurr Boutique - Custom Gift Baskets</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rockwell', 'Georgia', serif;
+            line-height: 1.6;
+            color: #6b4f5e;
+            background: #fef5f8;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f8e8ef 0%, #fdeef4 100%);
+            color: #9d6b84;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(157, 107, 132, 0.1);
+        }
+
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #9d6b84;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #9d6b84;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .hero {
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1400"%3E%3Cdefs%3E%3ClinearGradient id="bg" x1="0%25" y1="0%25" x2="0%25" y2="100%25"%3E%3Cstop offset="0%25" style="stop-color:%23ffeef5;stop-opacity:1" /%3E%3Cstop offset="100%25" style="stop-color:%23fff5f9;stop-opacity:1" /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width="800" height="1400" fill="url(%23bg)"/%3E%3Cpath d="M 100 200 Q 80 180 60 200 T 100 240 T 140 200 Q 120 180 100 200 Z" fill="%23ffc0db" opacity="0.4"/%3E%3Cpath d="M 150 500 Q 140 490 130 500 T 150 520 T 170 500 Q 160 490 150 500 Z" fill="%23ffc0db" opacity="0.5"/%3E%3Cpath d="M 80 600 Q 65 585 50 600 T 80 630 T 110 600 Q 95 585 80 600 Z" fill="%23ffc0db" opacity="0.3"/%3E%3Cpath d="M 650 150 L 655 165 L 670 170 L 655 175 L 650 190 L 645 175 L 630 170 L 645 165 Z" fill="%23e8d4e8" opacity="0.6"/%3E%3Cpath d="M 700 300 L 703 310 L 713 313 L 703 316 L 700 326 L 697 316 L 687 313 L 697 310 Z" fill="%23e8d4e8" opacity="0.5"/%3E%3Cpath d="M 100 1100 L 105 1115 L 120 1120 L 105 1125 L 100 1140 L 95 1125 L 80 1120 L 95 1115 Z" fill="%23ffc0db" opacity="0.4"/%3E%3Cpath d="M 700 350 Q 705 345 710 350 L 715 355 Q 710 360 705 355 Z M 690 350 Q 685 345 680 350 L 675 355 Q 680 360 685 355 Z M 695 348 L 695 365" stroke="%23e8d4e8" stroke-width="1.5" fill="none" opacity="0.5"/%3E%3Cpath d="M 650 1050 Q 640 1040 630 1050 T 650 1080 T 670 1050 Q 660 1040 650 1050 Z" fill="none" stroke="%23d4a5d4" stroke-width="2" stroke-dasharray="4,4" opacity="0.6"/%3E%3Cpath d="M 570 1180 Q 575 1175 580 1180 Q 585 1185 580 1190 Q 575 1185 570 1180 Z M 565 1175 Q 570 1170 575 1175 Q 580 1180 575 1185 Q 570 1180 565 1175 Z" fill="%23ff69b4" opacity="0.7"/%3E%3C/svg%3E') center/cover no-repeat;
+            padding: 10rem 2rem;
+            text-align: center;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-hero {
+            margin-bottom: 3rem;
+        }
+
+        .hero-logo {
+            max-width: 650px;
+            width: 90%;
+            height: auto;
+            animation: fadeInUp 1s ease;
+            filter: drop-shadow(0 10px 30px rgba(157, 107, 132, 0.15));
+        }
+
+        .hero-tagline {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #b97a8f;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            color: #9d6b84;
+            font-weight: 500;
+        }
+
+        .gallery-preview {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 3rem 0 2rem 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gallery-preview img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(157, 107, 132, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .gallery-preview img:hover {
+            transform: scale(1.05);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #d4a5be 0%, #c9949f 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(157, 107, 132, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: #fef5f8;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #c9949f;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            color: #b97a8f;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #6b4f5e;
+            text-align: justify;
+            font-family: 'Rockwell', 'Georgia', serif;
+        }
+
+        .about-box {
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe8f0 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(157, 107, 132, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(157, 107, 132, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(157, 107, 132, 0.25);
+        }
+
+        .product-image {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .halloween-bg {
+            background: linear-gradient(135deg, #2d1b2e 0%, #4a2d3f 100%);
+        }
+
+        .christmas-bg {
+            background: linear-gradient(135deg, #1a3a2e 0%, #2d5244 100%);
+        }
+
+        .seasonal-bg {
+            background: linear-gradient(135deg, #fdeef4 0%, #f8d4e4 100%);
+        }
+
+        .custom-bg {
+            background: linear-gradient(135deg, #d4a5be 0%, #c9949f 100%);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            background: linear-gradient(to bottom, white 0%, #fff8fb 100%);
+        }
+
+        .product-info h3 {
+            color: #9d6b84;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .product-info p {
+            color: #6b4f5e;
+            margin-bottom: 1rem;
+            min-height: 60px;
+            font-family: 'Rockwell', 'Georgia', serif;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            color: #c9949f;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .product-button {
+            background: linear-gradient(135deg, #d4a5be 0%, #c9949f 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+
+        .product-button:hover {
+            opacity: 0.85;
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe8f0 100%);
+            border-radius: 15px;
+            color: #6b4f5e;
+            font-size: 1.1rem;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #f8e8ef 0%, #fdd8e8 100%);
+            color: #6b4f5e;
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: #b97a8f;
+        }
+
+        .contact-info {
+            font-size: 1.2rem;
+            margin: 2rem 0;
+            color: #6b4f5e;
+            font-family: 'Rockwell', 'Georgia', serif;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2d1b2e 0%, #4a2d3f 100%);
+            color: #f8d4e4;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-logo {
+                max-width: 450px;
+            }
+
+            .hero {
+                padding: 6rem 2rem;
+                min-height: 80vh;
+            }
+
+            .hero-tagline {
+                font-size: 1.4rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .gallery-preview {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+                margin: 2rem 0 1.5rem 0;
+            }
+
+            .gallery-preview img {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🎁 BooBurr Boutique</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products/Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="logo-hero">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23f5f5f5'/%3E%3Crect x='100' y='100' width='600' height='400' fill='%23f5f5f5' stroke='%23b19cd9' stroke-width='8'/%3E%3Crect x='180' y='180' width='440' height='240' fill='%23f5e6f0' opacity='0.6' rx='20'/%3E%3Ctext x='400' y='320' font-family='Brush Script MT, cursive' font-size='80' text-anchor='middle' fill='%23000'>BooBurrBoutique%3C/text%3E%3Ctext x='400' y='360' font-family='Arial, sans-serif' font-size='18' text-anchor='middle' fill='%23000' letter-spacing='8'%3EGIFTS BASKET%3C/text%3E%3C/svg%3E" alt="BooBurr Boutique Logo" class="hero-logo">
+        </div>
+        <div class="hero-tagline">Thoughtful Gifts, Crafted with Care</div>
+        <p>Your go-to place for creative and personalized gift baskets</p>
+        
+        <div class="gallery-preview">
+            <img src="image-1.png" alt="Pink gift basket with self-care items" onerror="this.style.background='linear-gradient(135deg, #ffc0db 0%, #ffb3d1 100%)'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='🎀';">
+            <img src="image-2.png" alt="Outdoor pink basket display" onerror="this.style.background='linear-gradient(135deg, #f8d4e4 0%, #ffc0db 100%)'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='💝';">
+            <img src="image-3.png" alt="Halloween ghost basket with roses" onerror="this.style.background='linear-gradient(135deg, #2d1b2e 0%, #4a2d3f 100%)'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='👻';">
+            <img src="image-4.png" alt="Teal and pink Halloween buckets" onerror="this.style.background='linear-gradient(135deg, #87ceeb 0%, #ffc0db 100%)'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='🎃';">
+        </div>
+        
+        <a href="#products" class="cta-button">Shop Now</a>
+        <a href="#about" class="cta-button">Learn More</a>
+    </section>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-box">
+                        <h3>Welcome to BooBurr Boutique</h3>
+                        <p>Welcome to BooBurr Boutique, your go-to place for thoughtful and creative gift baskets. Our website helps you find the perfect gifts for friends, family, and other special people in your life. BooBurr Boutique allows you to explore our work, track the progress of your orders, and get inspiration for what to include in your custom baskets. We specialize in seasonal gifting for occasions such as Halloween and Christmas, as well as celebrations like birthdays and anniversaries.</p>
+                    </div>
+                </div>
+                
+                <div class="about-text">
+                    <div class="about-box">
+                        <h3>About Me</h3>
+                        <p>A little introduction about me: my name is Shukan Goswami, and I started BooBurr Boutique in July during the summer. I have been running this business for almost seven months now, and I currently manage everything on my own. Throughout this time, I have created and delivered many Boo and Burr baskets, gaining valuable experience along the way. Many customers have even come to me outside of holiday seasons to create special gifts for their friends and loved ones, which motivates me to continue growing my business.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="products">
+            <h2>Products & Services</h2>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image halloween-bg">🎃👻🕷️</div>
+                    <div class="product-info">
+                        <h3>Small Boo/Burr Basket</h3>
+                        <p>Perfect for a sweet surprise! Includes seasonal treats, small gifts, and custom decorations.</p>
+                        <div class="price">$15 – $20</div>
+                        <button class="product-button">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image christmas-bg">🎄❄️🎅</div>
+                    <div class="product-info">
+                        <h3>Medium Boo/Burr Basket</h3>
+                        <p>Our most popular size! Filled with delightful treats, themed items, and personalized touches.</p>
+                        <div class="price">$25 – $35</div>
+                        <button class="product-button">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image halloween-bg">🦇🍬🕸️</div>
+                    <div class="product-info">
+                        <h3>Large Boo/Burr Basket</h3>
+                        <p>Make a big impression! Loaded with goodies, self-care items, and beautiful seasonal decor.</p>
+                        <div class="price">$40 – $55</div>
+                        <button class="product-button">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image seasonal-bg">💝🌸🎂</div>
+                    <div class="product-info">
+                        <h3>Small Seasonal Basket</h3>
+                        <p>Perfect for birthdays, Valentine's Day, Easter, and other special occasions throughout the year.</p>
+                        <div class="price">$15 – $25</div>
+                        <button class="product-button">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image seasonal-bg">🎈🎉💐</div>
+                    <div class="product-info">
+                        <h3>Medium Seasonal Basket</h3>
+                        <p>Celebrate any occasion with style! Customized for anniversaries, graduations, and more.</p>
+                        <div class="price">$25 – $45</div>
+                        <button class="product-button">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image seasonal-bg">🎁💐🌟</div>
+                    <div class="product-info">
+                        <h3>Large Seasonal Basket</h3>
+                        <p>Go all out! Premium basket packed with luxurious items for that extra special celebration.</p>
+                        <div class="price">$50 – $60</div>
+                        <button class="product-button">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image custom-bg">✨🎁💫</div>
+                    <div class="product-info">
+                        <h3>Super Custom Basket</h3>
+                        <p>Have something very specific in mind? We'll create a completely personalized basket with premium items tailored just for you!</p>
+                        <div class="price">$75</div>
+                        <button class="product-button">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-note">
+                <strong>💡 Transparent Pricing - No Hidden Costs!</strong><br>
+                All prices include custom decoration and personalization. Delivery or convenient pick-up options available.<br>
+                <em>Special Deal: Get 2 baskets for $50 - Perfect for gifting to multiple friends!</em>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Get in Touch</h2>
+            <div class="contact-info">
+                <p><strong>Ready to order your custom gift basket?</strong></p>
+                <p>Contact us today to place your order and make someone's day special!</p>
+                <p style="margin-top: 2rem;">📧 Email: hello@booburrboutique.com</p>
+                <p>📱 Follow us on Instagram & TikTok: @booburrboutique</p>
+                <p>📍 Based in Brampton, Ontario</p>
+            </div>
+            <a href="#products" class="cta-button">Start Shopping</a>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 BooBurr Boutique. All rights reserved.</p>
+        <p>Custom gift baskets for every special occasion 🎁</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Created by Shukan Goswami</p>
+    </footer>
+</body>
+</html>
